@@ -1,3 +1,6 @@
+# Invenio Record Editor specific
+examples/static/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -12,3 +12,5 @@ cd $DIR
 export FLASK_APP=app.py
 
 # Setup fixtures
+flask users create info@inveniosoftware.org --password 123456
+flask users activate info@inveniosoftware.org
