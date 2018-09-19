@@ -62,7 +62,7 @@ setup(
     keywords='invenio TODO',
     license='MIT',
     author='CERN',
-    author_email='mr.topless@cern.ch',
+    author_email='info@inveniosoftware.org',
     url='https://github.com/topless/invenio-record-editor',
     packages=packages,
     zip_safe=False,
@@ -78,7 +78,9 @@ setup(
         # TODO: Edit these entry points to fit your needs.
         # 'invenio_access.actions': [],
         # 'invenio_admin.actions': [],
-        # 'invenio_assets.bundles': [],
+        'invenio_assets.bundles': [
+            'invenio_record_editor_js = invenio_record_editor.bundles:js'
+        ],
         # 'invenio_base.api_apps': [],
         # 'invenio_base.api_blueprints': [],
         # 'invenio_base.blueprints': [],

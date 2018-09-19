@@ -10,6 +10,9 @@
 # TODO: This is an example file. Remove it if your package does not use any
 # extra configuration variables.
 
+RECORD_EDITOR_URL_PREFIX = '/editor'
+"""Default URL prefix for our editor application."""
+
 RECORD_EDITOR_DEFAULT_VALUE = 'foobar'
 """Default value for the application."""
 

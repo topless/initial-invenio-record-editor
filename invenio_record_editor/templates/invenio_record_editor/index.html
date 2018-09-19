@@ -7,7 +7,15 @@
 {%- extends config.RECORD_EDITOR_BASE_TEMPLATE %}
 
 {%- block page_body %}
-TODO: Example template, please remove if you do not need it.
-{{_('Welcome to %(module_name)s', module_name=module_name)}}
+
+Load cds-record-editor here
+
 {%- endblock %}
 
+{% block javascript %}
+
+{% assets "invenio_record_editor_js" %}
+  <script src="{{ ASSET_URL }}"></script>
+{% endassets %}
+
+{% endblock javascript %}

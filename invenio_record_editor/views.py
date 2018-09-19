@@ -13,17 +13,22 @@
 from __future__ import absolute_import, print_function
 
 from flask import Blueprint, render_template
+from flask_login import login_required
 from flask_babelex import gettext as _
+
+from . import config
 
 blueprint = Blueprint(
     'invenio_record_editor',
     __name__,
+    url_prefix= config.RECORD_EDITOR_URL_PREFIX,
     template_folder='templates',
     static_folder='static',
 )
 
 
-@blueprint.route("/")
+@blueprint.route('/')
+@login_required
 def index():
     """Render a basic view."""
     return render_template(
