@@ -1,4 +1,0 @@
-invenio-theme>=1.0.0
-invenio-assets>=1.0.0
-invenio-admin>=1.0.0
-invenio-i18n>=1.0.0

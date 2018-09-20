@@ -37,17 +37,16 @@ for reqs in extras_require.values():
     extras_require['all'].extend(reqs)
 
 setup_requires = [
-    'Babel>=1.3',
     'pytest-runner>=2.6.2',
 ]
 
 # TODO: Check if can be removed
 install_requires = [
-    'Flask-BabelEx>=0.9.2',
-    'invenio-accounts>=1.0.1',
-    'Flask-Security>=3.0.0',
-    'Flask-WTF>=0.13.1',
-    'Flask-Login>=0.3.0',
+    'invenio-assets>=1.0.0',
+    # 'invenio-accounts>=1.0.1',
+    # 'Flask-Security>=3.0.0',
+    # 'Flask-WTF>=0.13.1',
+    # 'Flask-Login>=0.3.0',
 ]
 
 packages = find_packages()
@@ -77,10 +76,9 @@ setup(
         'invenio_base.apps': [
             'invenio_record_editor = invenio_record_editor:InvenioRecordEditor',
         ],
-        'invenio_i18n.translations': [
-            'messages = invenio_record_editor',
-        ],
-        # TODO: Edit these entry points to fit your needs.
+        # 'invenio_i18n.translations': [
+        #     'messages = invenio_record_editor',
+        # ],
         # 'invenio_access.actions': [],
         # 'invenio_admin.actions': [],
         'invenio_assets.bundles': [

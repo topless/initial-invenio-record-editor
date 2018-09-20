@@ -13,8 +13,7 @@
 from __future__ import absolute_import, print_function
 
 from flask import Blueprint, render_template
-from flask_login import login_required
-from flask_babelex import gettext as _
+# from flask_login import login_required
 
 from . import config
 
@@ -33,4 +32,4 @@ def index():
     """Render a basic view."""
     return render_template(
         "invenio_record_editor/index.html",
-        module_name=_('Invenio-Record-Editor'))
+        module_name='Invenio-Record-Editor')

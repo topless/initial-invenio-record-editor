@@ -14,7 +14,10 @@ from invenio_assets import NpmBundle
 
 js = NpmBundle(
     "node_modules/cds-record-editor/dist/inline.bundle.js",
+    "node_modules/cds-record-editor/dist/polyfills.bundle.js",
+    "node_modules/cds-record-editor/dist/styles.bundle.js",
     "node_modules/cds-record-editor/dist/vendor.bundle.js",
+    "node_modules/cds-record-editor/dist/editor.module.chunk.js",
     "node_modules/cds-record-editor/dist/main.bundle.js",
     depends=("node_modules/cds-record-editor/dist/*.js"),
     output="gen/cds-record-editor.%(version)s.js",

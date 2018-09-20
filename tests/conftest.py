@@ -14,7 +14,6 @@ import tempfile
 
 import pytest
 from flask import Flask
-from flask_babelex import Babel
 
 
 @pytest.yield_fixture()
@@ -33,7 +32,6 @@ def base_app(instance_path):
         SECRET_KEY='SECRET_KEY',
         TESTING=True,
     )
-    Babel(app_)
     return app_
 
 

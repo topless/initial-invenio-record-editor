@@ -44,17 +44,13 @@ SPHINX-END
 from __future__ import absolute_import, print_function
 
 from flask import Flask
-from flask_babelex import Babel
 
 from invenio_record_editor import InvenioRecordEditor
-from flask_login import LoginManager
 from invenio_assets import InvenioAssets
+# from flask_login import LoginManager
 
-login_manager = LoginManager()
-
-# Create Flask application
 app = Flask(__name__)
-Babel(app)
-login_manager.init_app(app)
-InvenioAssets(app)
 InvenioRecordEditor(app)
+# login_manager = LoginManager()
+# login_manager.init_app(app)
+InvenioAssets(app)
