@@ -13,15 +13,19 @@ from __future__ import absolute_import, division, print_function
 from invenio_assets import NpmBundle
 
 js = NpmBundle(
-    "node_modules/cds-record-editor/dist/inline.bundle.js",
-    "node_modules/cds-record-editor/dist/polyfills.bundle.js",
-    "node_modules/cds-record-editor/dist/styles.bundle.js",
-    "node_modules/cds-record-editor/dist/vendor.bundle.js",
-    "node_modules/cds-record-editor/dist/editor.module.chunk.js",
-    "node_modules/cds-record-editor/dist/main.bundle.js",
-    depends=("node_modules/cds-record-editor/dist/*.js"),
-    output="gen/cds-record-editor.%(version)s.js",
-    npm={
-        "cds-record-editor": "^0.0.1"
-    }
+    "node_modules/test-invenio-record-editor-js/dist/inline.bundle.js",
+    "node_modules/test-invenio-record-editor-js/dist/polyfills.bundle.js",
+    "node_modules/test-invenio-record-editor-js/dist/vendor.bundle.js",
+    "node_modules/test-invenio-record-editor-js/dist/main.bundle.js",
+    "node_modules/test-invenio-record-editor-js/dist/0.chunk.js",
+    depends=("node_modules/test-invenio-record-editor-js/dist/*.js"),
+    output="gen/invenio-record-editor-js.%(version)s.js",
+    npm={"test-invenio-record-editor-js": "0.0.1"},
+)
+
+css = NpmBundle(
+    "node_modules/test-invenio-record-editor-js/dist/styles.bundle.css",
+    depends=("node_modules/test-invenio-record-editor-js/dist/*.css"),
+    output="gen/invenio-record-editor-js.%(version)s.css",
+    npm={"test-invenio-record-editor-js": "0.0.1"},
 )

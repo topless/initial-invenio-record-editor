@@ -50,7 +50,7 @@ from invenio_assets import InvenioAssets
 # from flask_login import LoginManager
 
 app = Flask(__name__)
+InvenioAssets(app)
 InvenioRecordEditor(app)
 # login_manager = LoginManager()
 # login_manager.init_app(app)
-InvenioAssets(app)

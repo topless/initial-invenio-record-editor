@@ -32,4 +32,5 @@ def index():
     """Render a basic view."""
     return render_template(
         "invenio_record_editor/index.html",
+        editor_url=config.RECORD_EDITOR_URL_PREFIX,
         module_name='Invenio-Record-Editor')
