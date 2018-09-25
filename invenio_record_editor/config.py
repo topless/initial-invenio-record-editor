@@ -7,13 +7,11 @@
 
 """Invenio module serving a generic record editor."""
 
-# TODO: This is an example file. Remove it if your package does not use any
-# extra configuration variables.
 
-RECORD_EDITOR_URL_PREFIX = '/editor'
-"""Default URL prefix for our editor application."""
+RECORD_EDITOR_URL_PREFIX = '/'
+"""The URL we want to serve our editor application, i.e /editor"""
 
-RECORD_EDITOR_DEFAULT_VALUE = 'foobar'
+RECORD_EDITOR_DEFAULT_VALUE = 'invenio-record-editor'
 """Default value for the application."""
 
 RECORD_EDITOR_BASE_TEMPLATE = 'invenio_record_editor/base.html'

@@ -40,13 +40,8 @@ setup_requires = [
     'pytest-runner>=2.6.2',
 ]
 
-# TODO: Check if can be removed
 install_requires = [
     'invenio-assets>=1.0.0',
-    # 'invenio-accounts>=1.0.1',
-    # 'Flask-Security>=3.0.0',
-    # 'Flask-WTF>=0.13.1',
-    # 'Flask-Login>=0.3.0',
 ]
 
 packages = find_packages()
