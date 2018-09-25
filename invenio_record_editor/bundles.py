@@ -19,13 +19,17 @@ js = NpmBundle(
     "node_modules/test-invenio-record-editor-js/dist/main.bundle.js",
     "node_modules/test-invenio-record-editor-js/dist/0.chunk.js",
     depends=("node_modules/test-invenio-record-editor-js/dist/*.js"),
+    filters='uglifyjs',
     output="gen/invenio-record-editor-js.%(version)s.js",
-    npm={"test-invenio-record-editor-js": "0.0.1"},
+    npm={"test-invenio-record-editor-js": "0.0.7"},
 )
 
+# Patch to bring static files of our dependecies in the project.
+# bootstrap-sass and font-awesome will come as dependencies of
+# invenio-record-editor-js
 css = NpmBundle(
-    "node_modules/test-invenio-record-editor-js/dist/styles.bundle.css",
-    depends=("node_modules/test-invenio-record-editor-js/dist/*.css"),
-    output="gen/invenio-record-editor-js.%(version)s.css",
-    npm={"test-invenio-record-editor-js": "0.0.1"},
+    'scss/styles.scss',
+    depends=('scss/*.scss', ),
+    filters='node-scss,cleancssurl',
+    output='gen/invenio-record-editor-js.%(version)s.css',
 )
