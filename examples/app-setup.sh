@@ -15,7 +15,7 @@ export FLASK_APP=app.py
 mkdir $DIR/static
 mkdir $DIR/instance
 
-npm install -g node-sass@3.8.0 clean-css@3.4.19 requirejs@2.2.0 uglify-js@2.7.3
+# npm install -g node-sass@3.8.0 clean-css@3.4.19 requirejs@2.2.0 uglify-js@2.7.3
 
 flask npm
 cd static

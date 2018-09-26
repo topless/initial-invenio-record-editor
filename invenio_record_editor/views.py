@@ -19,16 +19,19 @@ from . import config
 blueprint = Blueprint(
     'invenio_record_editor',
     __name__,
-    url_prefix= config.RECORD_EDITOR_URL_PREFIX,
+    url_prefix=config.RECORD_EDITOR_DEFAULT_URL_PREFIX,
     template_folder='templates',
     static_folder='static',
 )
 
+default_permission = config.RECORD_EDITOR_DEFAULT_PERMISSION
+
 
 @blueprint.route('/')
+# @default_permission.require()
 def index():
     """Render a basic view."""
     return render_template(
         "invenio_record_editor/index.html",
-        editor_url=config.RECORD_EDITOR_URL_PREFIX,
+        editor_url=config.RECORD_EDITOR_DEFAULT_URL_PREFIX,
         module_name='Invenio-Record-Editor')

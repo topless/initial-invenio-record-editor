@@ -5,7 +5,7 @@
 # Invenio-Record-Editor is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 
-"""Invenio module serving a generic record editor"""
+"""Invenio module serving a generic record editor."""
 
 import os
 
@@ -37,11 +37,15 @@ for reqs in extras_require.values():
     extras_require['all'].extend(reqs)
 
 setup_requires = [
+    'Babel>=1.3',
     'pytest-runner>=2.6.2',
 ]
 
 install_requires = [
+    'Flask-BabelEx>=0.9.2',
     'invenio-assets>=1.0.0',
+    'invenio-db>=1.0.2',
+    'invenio-access>=1.0.0',
 ]
 
 packages = find_packages()

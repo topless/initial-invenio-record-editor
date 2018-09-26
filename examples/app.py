@@ -44,13 +44,16 @@ SPHINX-END
 from __future__ import absolute_import, print_function
 
 from flask import Flask
+from flask_babelex import Babel
 
 from invenio_record_editor import InvenioRecordEditor
 from invenio_assets import InvenioAssets
-# from flask_login import LoginManager
+from invenio_access import InvenioAccess
+from flask_principal import Need
 
 app = Flask(__name__)
+Babel(app)
 InvenioAssets(app)
+InvenioAccess(app)
 InvenioRecordEditor(app)
-# login_manager = LoginManager()
-# login_manager.init_app(app)
+app.config.DEFAULT_PERMISSION = Need('allow_all', 0)
