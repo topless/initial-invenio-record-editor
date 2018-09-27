@@ -7,16 +7,14 @@
 
 """Invenio module serving a generic record editor."""
 
-from .permissions import default_permission
+from .permissions import AllowAll
 
-RECORD_EDITOR_DEFAULT_URL_PREFIX = '/'
+
+RECORD_EDITOR_URL_PREFIX = '/'
 """Default URL we want to serve our editor application, i.e /editor."""
 
-RECORD_EDITOR_DEFAULT_PERMISSION = default_permission
-"""Default user permission to access the editor."""
-
-RECORD_EDITOR_DEFAULT_VALUE = 'invenio-record-editor'
-"""Default value for the application."""
+RECORD_EDITOR_VIEW_PERMISSION = AllowAll
+"""Default permission to access the editor."""
 
 RECORD_EDITOR_BASE_TEMPLATE = 'invenio_record_editor/base.html'
 """Default base template for the demo page."""

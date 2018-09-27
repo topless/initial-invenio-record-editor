@@ -49,11 +49,12 @@ from flask_babelex import Babel
 from invenio_record_editor import InvenioRecordEditor
 from invenio_assets import InvenioAssets
 from invenio_access import InvenioAccess
-from flask_principal import Need
+from invenio_i18n import InvenioI18N
+
 
 app = Flask(__name__)
 Babel(app)
+InvenioI18N(app)
 InvenioAssets(app)
 InvenioAccess(app)
 InvenioRecordEditor(app)
-app.config.DEFAULT_PERMISSION = Need('allow_all', 0)

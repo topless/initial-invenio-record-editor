@@ -7,6 +7,11 @@
 
 """Invenio module serving a generic record editor."""
 
-from flask_principal import Permission, RoleNeed
 
-default_permission = Permission(RoleNeed('admin'))
+class AllowAll():
+    """Default editor permission without restrictions."""
+    def __init__(self, action):
+        pass
+
+    def can(self):
+        return True

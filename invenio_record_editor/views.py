@@ -7,31 +7,26 @@
 
 """Invenio module serving a generic record editor."""
 
-# TODO: This is an example file. Remove it if you do not need it, including
-# the templates and static folders as well as the test case.
-
 from __future__ import absolute_import, print_function
 
 from flask import Blueprint, render_template
-
-from . import config
+from .utils import need_editor_permissions
+from .config import RECORD_EDITOR_URL_PREFIX
 
 blueprint = Blueprint(
     'invenio_record_editor',
     __name__,
-    url_prefix=config.RECORD_EDITOR_DEFAULT_URL_PREFIX,
+    url_prefix=RECORD_EDITOR_URL_PREFIX,
     template_folder='templates',
     static_folder='static',
 )
 
-default_permission = config.RECORD_EDITOR_DEFAULT_PERMISSION
-
 
 @blueprint.route('/')
-# @default_permission.require()
+@need_editor_permissions('editor-view')
 def index():
-    """Render a basic view."""
+    """Render a basic view, with dummy permission editor-view"""
     return render_template(
         "invenio_record_editor/index.html",
-        editor_url=config.RECORD_EDITOR_DEFAULT_URL_PREFIX,
+        editor_url=RECORD_EDITOR_URL_PREFIX,
         module_name='Invenio-Record-Editor')
