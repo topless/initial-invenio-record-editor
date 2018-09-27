@@ -14,6 +14,12 @@ import tempfile
 
 import pytest
 from flask import Flask
+from flask_babelex import Babel
+from invenio_access import InvenioAccess
+from invenio_assets import InvenioAssets
+from invenio_i18n import InvenioI18N
+
+from invenio_record_editor import InvenioRecordEditor
 
 
 @pytest.yield_fixture()
@@ -32,6 +38,11 @@ def base_app(instance_path):
         SECRET_KEY='SECRET_KEY',
         TESTING=True,
     )
+    Babel(app_)
+    InvenioI18N(app_)
+    InvenioAssets(app_)
+    InvenioAccess(app_)
+    InvenioRecordEditor(app_)
     return app_
 
 

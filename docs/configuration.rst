@@ -6,6 +6,3 @@
 
 Configuration
 =============
-
-.. automodule:: invenio_record_editor.config
-   :members:

@@ -9,15 +9,13 @@
 
 SPHINX-START
 
-First install Invenio-Record-Editor, setup the application and load
-fixture data by running:
+First install Invenio-Record-Editor, setup the application by running:
 
 .. code-block:: console
 
    $ pip install -e .[all]
    $ cd examples
    $ ./app-setup.sh
-   $ ./app-fixtures.sh
 
 Next, start the development server:
 

@@ -7,20 +7,18 @@
 {%- extends config.RECORD_EDITOR_BASE_TEMPLATE %}
 
 {% block head %}
-  <base href="{{editor_url}}">
   {% assets "invenio_record_editor_css" %}
     <link href="{{ ASSET_URL }}" rel="stylesheet">
   {% endassets %}
+  <base href="{{editor_url}}">
 {% endblock %}
 
-{%- block page_body %}
+{% block page_body %}
   <app-root></app-root>
-{%- endblock %}
+{% endblock %}
 
 {% block javascript %}
-
 {% assets "invenio_record_editor_js" %}
   <script src="{{ ASSET_URL }}"></script>
 {% endassets %}
-
 {% endblock javascript %}
