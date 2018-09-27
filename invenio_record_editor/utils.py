@@ -9,10 +9,8 @@
 
 from functools import wraps
 
-from flask import abort
+from flask import abort, current_app
 from flask_login import current_user
-
-from .config import RECORD_EDITOR_VIEW_PERMISSION
 
 
 def need_editor_permissions(action):
@@ -23,8 +21,9 @@ def need_editor_permissions(action):
     def decorator_builder(f):
         @wraps(f)
         def decorate(*args, **kwargs):
-            permission = RECORD_EDITOR_VIEW_PERMISSION(action)
-            check_permission(permission)
+            check_permission(
+                current_app.config['RECORD_EDITOR_VIEW_PERMISSION'](action)
+            )
             return f(*args, **kwargs)
         return decorate
     return decorator_builder
