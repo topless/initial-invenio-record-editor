@@ -35,3 +35,7 @@ recursive-include examples *.py
 recursive-include examples *.sh
 recursive-include invenio_record_editor *.html
 recursive-include tests *.py
+
+# added by check_manifest.py
+recursive-include invenio_record_editor *.json
+recursive-include invenio_record_editor *.scss

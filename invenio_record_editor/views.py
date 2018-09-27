@@ -10,8 +10,9 @@
 from __future__ import absolute_import, print_function
 
 from flask import Blueprint, render_template
-from .utils import need_editor_permissions
+
 from .config import RECORD_EDITOR_URL_PREFIX
+from .utils import need_editor_permissions
 
 blueprint = Blueprint(
     'invenio_record_editor',
@@ -25,7 +26,7 @@ blueprint = Blueprint(
 @blueprint.route('/')
 @need_editor_permissions('editor-view')
 def index():
-    """Render a basic view, with dummy permission editor-view"""
+    """Render a basic view, with dummy permission editor-view."""
     return render_template(
         "invenio_record_editor/index.html",
         editor_url=RECORD_EDITOR_URL_PREFIX,

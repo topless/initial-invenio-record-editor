@@ -11,11 +11,13 @@ from functools import wraps
 
 from flask import abort
 from flask_login import current_user
+
 from .config import RECORD_EDITOR_VIEW_PERMISSION
 
 
 def need_editor_permissions(action):
     """Get permission for editor or abort.
+
     :param action: The action needed.
     """
     def decorator_builder(f):
@@ -30,6 +32,7 @@ def need_editor_permissions(action):
 
 def check_permission(permission):
     """Check if permission is allowed.
+
     If permission fails then the connection is aborted.
     :param permission: The permission to check.
     """

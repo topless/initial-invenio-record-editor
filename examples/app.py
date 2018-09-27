@@ -45,12 +45,11 @@ from __future__ import absolute_import, print_function
 
 from flask import Flask
 from flask_babelex import Babel
-
-from invenio_record_editor import InvenioRecordEditor
-from invenio_assets import InvenioAssets
 from invenio_access import InvenioAccess
+from invenio_assets import InvenioAssets
 from invenio_i18n import InvenioI18N
 
+from invenio_record_editor import InvenioRecordEditor
 
 app = Flask(__name__)
 Babel(app)

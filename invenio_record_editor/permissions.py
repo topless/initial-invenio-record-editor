@@ -10,8 +10,11 @@
 
 class AllowAll():
     """Default editor permission without restrictions."""
+
     def __init__(self, action):
+        """Initialize a permission object."""
         pass
 
     def can(self):
+        """Determine access."""
         return True
