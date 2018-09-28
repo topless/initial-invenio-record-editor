@@ -11,7 +11,6 @@
 from __future__ import absolute_import, print_function
 
 from . import config
-from .views import blueprint
 
 
 class InvenioRecordEditor(object):
@@ -25,7 +24,6 @@ class InvenioRecordEditor(object):
     def init_app(self, app):
         """Flask application initialization."""
         self.init_config(app)
-        app.register_blueprint(blueprint)
         app.extensions['invenio-record-editor'] = self
 
     def init_config(self, app):

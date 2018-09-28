@@ -48,6 +48,7 @@ from invenio_assets import InvenioAssets
 from invenio_i18n import InvenioI18N
 
 from invenio_record_editor import InvenioRecordEditor
+from invenio_record_editor.views import create_editor_blueprint
 
 app = Flask(__name__)
 Babel(app)
@@ -55,3 +56,6 @@ InvenioI18N(app)
 InvenioAssets(app)
 InvenioAccess(app)
 InvenioRecordEditor(app)
+
+blueprint = create_editor_blueprint(app)
+app.register_blueprint(blueprint)

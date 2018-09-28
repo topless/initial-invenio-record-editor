@@ -10,24 +10,25 @@
 from __future__ import absolute_import, print_function
 
 from flask import Blueprint, render_template
-
-from .config import RECORD_EDITOR_URL_PREFIX
 from .utils import need_editor_permissions
 
-blueprint = Blueprint(
-    'invenio_record_editor',
-    __name__,
-    url_prefix=RECORD_EDITOR_URL_PREFIX,
-    template_folder='templates',
-    static_folder='static',
-)
 
+def create_editor_blueprint(app):
+    blueprint = Blueprint(
+        'invenio_record_editor',
+        __name__,
+        url_prefix=app.config['RECORD_EDITOR_URL_PREFIX'],
+        template_folder='templates',
+        static_folder='static',
+    )
 
-@blueprint.route('/')
-@need_editor_permissions('editor-view')
-def index():
-    """Render a basic view, with dummy permission editor-view."""
-    return render_template(
-        "invenio_record_editor/index.html",
-        editor_url=RECORD_EDITOR_URL_PREFIX,
-        module_name='Invenio-Record-Editor')
+    @blueprint.route('/')
+    @need_editor_permissions('editor-view')
+    def index():
+        """Render a basic view, with dummy permission editor-view."""
+        return render_template(
+            "invenio_record_editor/index.html",
+            editor_url=app.config['RECORD_EDITOR_URL_PREFIX'],
+            module_name='Invenio-Record-Editor')
+
+    return blueprint

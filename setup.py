@@ -73,7 +73,7 @@ setup(
     platforms='any',
     entry_points={
         'invenio_base.apps': [
-            'invenio_record_editor = invenio_record_editor:InvenioRecordEditor',
+            'invenio_record_editor = invenio_record_editor.ext:InvenioRecordEditor',
         ],
         # 'invenio_i18n.translations': [
         #     'messages = invenio_record_editor',
