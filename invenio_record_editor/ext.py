@@ -6,7 +6,7 @@
 # Invenio-Record-Editor is free software; you can redistribute it and/or modify
 # it under the terms of the MIT License; see LICENSE file for more details.
 
-"""Invenio module serving a generic record editor."""
+"""Invenio record editor module extension."""
 
 from __future__ import absolute_import, print_function
 
