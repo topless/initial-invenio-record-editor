@@ -21,7 +21,7 @@ js = NpmBundle(
     depends=("node_modules/test-invenio-record-editor-js/dist/*.js"),
     filters='uglifyjs',
     output="gen/invenio-record-editor-js.%(version)s.js",
-    npm={"test-invenio-record-editor-js": "0.0.7"},
+    npm={"test-invenio-record-editor-js": "0.0.11"},
 )
 
 # Patch to bring static files of our dependecies in the project.
