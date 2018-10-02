@@ -15,6 +15,7 @@ from flask_login import current_user
 
 def allow_all(*args, **kwargs):
     """Return dummy permission that always allow an access.
+
     :returns: A object instance with a ``can()`` method.
     """
     return type('AllowAll', (), {'can': lambda self: True})()

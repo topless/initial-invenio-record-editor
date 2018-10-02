@@ -42,13 +42,10 @@ SPHINX-END
 from __future__ import absolute_import, print_function
 
 from flask import Flask
-from flask_babelex import Babel
 from flask_menu import Menu
-from invenio_access import InvenioAccess
 from invenio_accounts import InvenioAccounts
 from invenio_accounts.views.settings import blueprint as accounts_bp
 from invenio_assets import InvenioAssets
-from invenio_i18n import InvenioI18N
 
 from invenio_record_editor import InvenioRecordEditor
 from invenio_record_editor.views import create_editor_blueprint
@@ -59,12 +56,8 @@ app.config.update(
 )
 
 Menu(app)
-Babel(app)
 InvenioAccounts(app)
-InvenioAccess(app)
 InvenioAssets(app)
-InvenioI18N(app)
-
 InvenioRecordEditor(app)
 
 editor_bp = create_editor_blueprint(app)

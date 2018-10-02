@@ -10,10 +10,12 @@
 from __future__ import absolute_import, print_function
 
 from flask import Blueprint, render_template
+
 from .permissions import need_editor_permissions
 
 
 def create_editor_blueprint(app):
+    """Wrapper for our blueprint to create it on demand."""
     blueprint = Blueprint(
         'invenio_record_editor',
         __name__,
