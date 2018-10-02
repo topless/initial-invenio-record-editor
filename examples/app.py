@@ -43,7 +43,10 @@ from __future__ import absolute_import, print_function
 
 from flask import Flask
 from flask_babelex import Babel
+from flask_menu import Menu
 from invenio_access import InvenioAccess
+from invenio_accounts import InvenioAccounts
+from invenio_accounts.views.settings import blueprint as accounts_bp
 from invenio_assets import InvenioAssets
 from invenio_i18n import InvenioI18N
 
@@ -51,11 +54,19 @@ from invenio_record_editor import InvenioRecordEditor
 from invenio_record_editor.views import create_editor_blueprint
 
 app = Flask(__name__)
+app.config.update(
+    SECRET_KEY="CHANGE_ME",
+)
+
+Menu(app)
 Babel(app)
-InvenioI18N(app)
-InvenioAssets(app)
+InvenioAccounts(app)
 InvenioAccess(app)
+InvenioAssets(app)
+InvenioI18N(app)
+
 InvenioRecordEditor(app)
 
-blueprint = create_editor_blueprint(app)
-app.register_blueprint(blueprint)
+editor_bp = create_editor_blueprint(app)
+app.register_blueprint(accounts_bp)
+app.register_blueprint(editor_bp)
