@@ -17,6 +17,7 @@ history = open('CHANGES.rst').read()
 tests_require = [
     'check-manifest>=0.25',
     'coverage>=4.0',
+    'invenio-db>=1.0.2',
     'isort>=4.3.3',
     'pydocstyle>=1.0.0',
     'pytest-cache>=1.0',
@@ -42,7 +43,6 @@ setup_requires = [
 
 install_requires = [
     'invenio-assets>=1.0.0',
-    'invenio-db>=1.0.2',
     'invenio-accounts>=1.0.1',
 ]
 

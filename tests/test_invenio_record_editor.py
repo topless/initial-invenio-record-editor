@@ -10,8 +10,10 @@
 from __future__ import absolute_import, print_function
 
 from flask import Flask, render_template_string
+from invenio_accounts.views.settings import blueprint as accounts_bp
 
 from invenio_record_editor import InvenioRecordEditor
+from invenio_record_editor.views import create_editor_blueprint
 
 
 def test_version():
@@ -47,5 +49,8 @@ def _check_template():
 
 def test_view(app):
     """Test view."""
+    editor_bp = create_editor_blueprint(app)
+    app.register_blueprint(editor_bp)
+    app.register_blueprint(accounts_bp)
     with app.test_request_context():
         _check_template()
