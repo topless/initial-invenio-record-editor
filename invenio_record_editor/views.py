@@ -17,20 +17,21 @@ from .permissions import need_editor_permissions
 def create_editor_blueprint(app):
     """Wrapper for our blueprint to create it on demand."""
     blueprint = Blueprint(
-        'invenio_record_editor',
+        "invenio_record_editor",
         __name__,
-        url_prefix=app.config['RECORD_EDITOR_URL_PREFIX'],
-        template_folder='templates',
-        static_folder='static',
+        url_prefix=app.config["RECORD_EDITOR_URL_PREFIX"],
+        template_folder="templates",
+        static_folder="static",
     )
 
-    @blueprint.route('/')
-    @need_editor_permissions('editor-view')
+    @blueprint.route("/")
+    @need_editor_permissions("editor-view")
     def index():
         """Render a basic view, with dummy permission editor-view."""
         return render_template(
-            "invenio_record_editor/index.html",
-            editor_url=app.config['RECORD_EDITOR_URL_PREFIX'],
-            module_name='Invenio-Record-Editor')
+            "invenio_record_editor/base.html",
+            editor_url=app.config["RECORD_EDITOR_URL_PREFIX"],
+            module_name="Invenio-Record-Editor",
+        )
 
     return blueprint
