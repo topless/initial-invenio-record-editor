@@ -19,32 +19,30 @@ from invenio_record_editor.views import create_editor_blueprint
 def test_version():
     """Test version import."""
     from invenio_record_editor import __version__
+
     assert __version__
 
 
 def test_init():
     """Test extension initialization."""
-    app = Flask('testapp')
+    app = Flask("testapp")
     ext = InvenioRecordEditor(app)
-    assert 'invenio-record-editor' in app.extensions
+    assert "invenio-record-editor" in app.extensions
 
-    app = Flask('testapp')
+    app = Flask("testapp")
     ext = InvenioRecordEditor()
-    assert 'invenio-record-editor' not in app.extensions
+    assert "invenio-record-editor" not in app.extensions
     ext.init_app(app)
-    assert 'invenio-record-editor' in app.extensions
+    assert "invenio-record-editor" in app.extensions
 
 
 def _check_template():
     """Check template."""
     extended = """
-        {% extends 'invenio_record_editor/index.html' %}
-        {% block head %}{% endblock head %}
-        {% block page_body %}{{ super() }}{% endblock page_body %}
-        {% block javascript %}{% endblock javascript %}
+        {% extends 'invenio_record_editor/base.html' %}
     """
     rendered = render_template_string(extended)
-    assert 'app-root' in rendered
+    assert "app-root" in rendered
 
 
 def test_view(app):

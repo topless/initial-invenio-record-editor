@@ -13,20 +13,20 @@ from __future__ import absolute_import, division, print_function
 from invenio_assets import NpmBundle
 
 js = NpmBundle(
-    "node_modules/test-invenio-record-editor-js/dist/inline.bundle.js",
-    "node_modules/test-invenio-record-editor-js/dist/polyfills.bundle.js",
-    "node_modules/test-invenio-record-editor-js/dist/vendor.bundle.js",
-    "node_modules/test-invenio-record-editor-js/dist/main.bundle.js",
-    depends=("node_modules/test-invenio-record-editor-js/dist/*.js"),
+    "node_modules/invenio-records-editor-js/dist/inline.bundle.js",
+    "node_modules/invenio-records-editor-js/dist/polyfills.bundle.js",
+    "node_modules/invenio-records-editor-js/dist/vendor.bundle.js",
+    "node_modules/invenio-records-editor-js/dist/main.bundle.js",
+    depends=("node_modules/invenio-records-editor-js/dist/*.js"),
     filters="uglifyjs",
-    output="gen/invenio-record-editor-js.%(version)s.js",
+    output="gen/invenio-records-editor-js.%(version)s.js",
     npm={"invenio-records-editor-js": "0.0.1"},
 )
 """Default Editor JavaScript bundle with Angular4."""
 
 css = NpmBundle(
-    "node_modules/test-invenio-record-editor-js/dist/styles.bundle.css",
+    "node_modules/invenio-records-editor-js/dist/styles.bundle.css",
     filters="cleancssurl",
-    output="gen/invenio-record-editor-js.%(version)s.css",
+    output="gen/invenio-records-editor-js.%(version)s.css",
 )
 """Default Editor CSS bundle with bootstrap, font-awesome, kate, toastr"""

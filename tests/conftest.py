@@ -31,11 +31,8 @@ def instance_path():
 @pytest.fixture()
 def base_app(instance_path):
     """Flask application fixture."""
-    app_ = Flask('testapp', instance_path=instance_path)
-    app_.config.update(
-        SECRET_KEY='SECRET_KEY',
-        TESTING=True,
-    )
+    app_ = Flask("testapp", instance_path=instance_path)
+    app_.config.update(SECRET_KEY="SECRET_KEY", TESTING=True)
     InvenioAccounts(app_)
     InvenioAssets(app_)
     InvenioRecordEditor(app_)

@@ -12,4 +12,4 @@ from __future__ import absolute_import, print_function
 from .ext import InvenioRecordEditor
 from .version import __version__
 
-__all__ = ('__version__', 'InvenioRecordEditor')
+__all__ = ("__version__", "InvenioRecordEditor")

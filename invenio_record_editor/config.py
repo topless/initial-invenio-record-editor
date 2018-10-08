@@ -9,11 +9,11 @@
 
 from .permissions import allow_all
 
-RECORD_EDITOR_URL_PREFIX = '/'
+RECORD_EDITOR_URL_PREFIX = "/"
 """Default URL we want to serve our editor application, i.e /editor."""
 
 RECORD_EDITOR_VIEW_PERMISSION = allow_all
 """Default permission to access the editor."""
 
-RECORD_EDITOR_BASE_TEMPLATE = 'invenio_record_editor/base.html'
+RECORD_EDITOR_BASE_TEMPLATE = "invenio_record_editor/base.html"
 """Default base template for the demo page."""
