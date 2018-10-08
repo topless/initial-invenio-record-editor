@@ -20,7 +20,7 @@ js = NpmBundle(
     depends=("node_modules/test-invenio-record-editor-js/dist/*.js"),
     filters="uglifyjs",
     output="gen/invenio-record-editor-js.%(version)s.js",
-    npm={"test-invenio-record-editor-js": "0.0.11"},
+    npm={"invenio-records-editor-js": "0.0.1"},
 )
 """Default Editor JavaScript bundle with Angular4."""
 
