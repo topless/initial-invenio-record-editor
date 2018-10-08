@@ -29,9 +29,6 @@ def example_app():
     # Setup application
     assert subprocess.call('./app-setup.sh', shell=True) == 0
 
-    # Setup fixtures
-    assert subprocess.call('./app-fixtures.sh', shell=True) == 0
-
     # Start example app
     webapp = subprocess.Popen(
         'FLASK_APP=app.py flask run --debugger -p 5000',
@@ -47,10 +44,3 @@ def example_app():
 
     # Return to the original directory
     os.chdir(current_dir)
-
-
-def test_example_app_role_admin(example_app):
-    """Test example app."""
-    cmd = 'curl http://0.0.0.0:5000/'
-    output = subprocess.check_output(cmd, shell=True)
-    assert b'Welcome to Invenio-Record-Editor' in output

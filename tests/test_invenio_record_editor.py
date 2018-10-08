@@ -9,9 +9,11 @@
 
 from __future__ import absolute_import, print_function
 
-from flask import Flask
+from flask import Flask, render_template_string
+from invenio_accounts.views.settings import blueprint as accounts_bp
 
 from invenio_record_editor import InvenioRecordEditor
+from invenio_record_editor.views import create_editor_blueprint
 
 
 def test_version():
@@ -33,10 +35,22 @@ def test_init():
     assert 'invenio-record-editor' in app.extensions
 
 
+def _check_template():
+    """Check template."""
+    extended = """
+        {% extends 'invenio_record_editor/index.html' %}
+        {% block head %}{% endblock head %}
+        {% block page_body %}{{ super() }}{% endblock page_body %}
+        {% block javascript %}{% endblock javascript %}
+    """
+    rendered = render_template_string(extended)
+    assert 'app-root' in rendered
+
+
 def test_view(app):
     """Test view."""
-    InvenioRecordEditor(app)
-    with app.test_client() as client:
-        res = client.get("/")
-        assert res.status_code == 200
-        assert 'Welcome to Invenio-Record-Editor' in str(res.data)
+    editor_bp = create_editor_blueprint(app)
+    app.register_blueprint(editor_bp)
+    app.register_blueprint(accounts_bp)
+    with app.test_request_context():
+        _check_template()

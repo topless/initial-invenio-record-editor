@@ -5,7 +5,7 @@
 # Invenio-Record-Editor is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 
-"""Invenio module serving a generic record editor"""
+"""Invenio module serving a generic record editor."""
 
 import os
 
@@ -17,6 +17,7 @@ history = open('CHANGES.rst').read()
 tests_require = [
     'check-manifest>=0.25',
     'coverage>=4.0',
+    'invenio-db>=1.0.2',
     'isort>=4.3.3',
     'pydocstyle>=1.0.0',
     'pytest-cache>=1.0',
@@ -42,6 +43,7 @@ setup_requires = [
 
 install_requires = [
     'invenio-assets>=1.0.0',
+    'invenio-accounts>=1.0.1',
 ]
 
 packages = find_packages()
@@ -69,7 +71,7 @@ setup(
     platforms='any',
     entry_points={
         'invenio_base.apps': [
-            'invenio_record_editor = invenio_record_editor:InvenioRecordEditor',
+            'invenio_record_editor = invenio_record_editor.ext:InvenioRecordEditor',
         ],
         # 'invenio_i18n.translations': [
         #     'messages = invenio_record_editor',

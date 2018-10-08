@@ -14,6 +14,10 @@ import tempfile
 
 import pytest
 from flask import Flask
+from invenio_accounts import InvenioAccounts
+from invenio_assets import InvenioAssets
+
+from invenio_record_editor import InvenioRecordEditor
 
 
 @pytest.yield_fixture()
@@ -32,6 +36,9 @@ def base_app(instance_path):
         SECRET_KEY='SECRET_KEY',
         TESTING=True,
     )
+    InvenioAccounts(app_)
+    InvenioAssets(app_)
+    InvenioRecordEditor(app_)
     return app_
 
 
